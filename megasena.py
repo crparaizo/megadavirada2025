@@ -54,30 +54,30 @@ def numerosMaisfrequentes(database: list):
 #     print(f"Número {numero}: {frequencia} vezes")
 
 # números que nunca foram sorteados:
-def numerosNuncaSorteados(database: list):
+def numerosNuncaSorteados(database: list, total_numeros: int):
     todos_os_numeros = []
     for resultado in database:
         dezenas = resultado['dezenas']
         for numero in dezenas:
             todos_os_numeros.append(int(numero))
     numeros_sorteados = set(todos_os_numeros)
-    todos_numeros = set(range(1, 61))
+    todos_numeros = set(range(1, total_numeros))
     numeros_nunca_sorteados = todos_numeros - numeros_sorteados
     return sorted(numeros_nunca_sorteados)
-# nunca_sorteados = numerosNuncaSorteados(resultadosMegaSena)
+# nunca_sorteados = numerosNuncaSorteados(resultadosMegaSena,61)
 # print("Números que nunca foram sorteados na Mega Sena:")
 # for numero in nunca_sorteados:
 #     print(numero)
 
 
-def quantidadeNumerosImparesSorteados():
+def quantidadeNumerosImparesSorteados(todos_os_numeros):
     numeros_impares = [num for num in todos_os_numeros if num % 2 != 0]
     return len(numeros_impares) 
     
 # print(quantidadeNumerosImparesSorteados())
     
 
-def quantidadeNumerosParesSorteados():
+def quantidadeNumerosParesSorteados(todos_os_numeros):
     numeros_pares = [num for num in todos_os_numeros if num % 2 == 0]
     return len(numeros_pares) 
     
